@@ -30,13 +30,13 @@ routes.delete('/cliente/:cpf', ClienteController.deleteClient); // Exlcuir clien
 
 routes.get('/categoria', CategoriaController.allCategorys); //Buscar categorias
 
-routes.get('/categoria/:id', CategoriaController.categoryById); //Buscar categorias
+routes.get('/categoria/:codigo_categoria', CategoriaController.categoryById); //Buscar categorias
 
 routes.post('/categoria', CategoriaController.createNewCategory); //Criar categoria especifica
 
 routes.put('/categoria/', CategoriaController.updateCategory); //Atualizar categoria especifica
 
-routes.delete('/categoria/:id', CategoriaController.deleteCategory); //Excluir categoria especifica
+routes.delete('/categoria/:codigo_categoria', CategoriaController.deleteCategory); //Excluir categoria especifica
 
 
 // Produto CRUD:
