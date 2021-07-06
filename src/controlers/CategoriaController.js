@@ -10,10 +10,10 @@ class CategoriaController {
     }
 
     async categoryById(req,res){
-        const {id} = req.params;
+        const {codigo_categoria} = req.params;
         const categoria = await Categoria.findOne({
             where: {
-               id:id
+                codigo_categoria: codigo_categoria
             }
 
         })
