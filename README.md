@@ -1,38 +1,250 @@
 # Projeto Aplicado a Engenharia de Software
+Projeto Aplicado - Engenharia de Software
+API developed during the pos graduate program in Software Engineering at PUC Minas - 2021 to represents a simplified electronic commerce.
 
-Trabalho Final do curso de Pós Graduação de Engenharia de Software na PUC Minas/2021.
+Customers (fields in the corresponding table: CPF, customer name, address, state, Municipality, telephone, email and password) place orders (table fields: order code, order date and customer CPF). These, in turn, are made up of order items (corresponding table fields: order code, product code and quantity) referring to a product (corresponding table fields: product code, product name, product price and quantity in stock). These products are classified into categories (fields in the corresponding table: category code and category name).
 
-Desenvolvido por:
+## Clientes
 
-- Alicia Marianne Gonçalves de Paula
-- Ana Cristina Pereira Teixeira
-- Cleyton Pereira Plácido
-- Pollyanna Carolina Da Fonseca
+### GET- Buscar usuário
 
-Professor: Pasteur Ottoni de Miranda Junior
+Buscar usuário cadastrado informando cpf
 
+```
+https://projetoposgraduacao-backend.herokuapp.com/cliente/96782411024
+```
+### POST - Criar usuário
 
-## O Projeto
+```
+https://projetoposgraduacao-backend.herokuapp.com/cliente
+```
 
-Seja um sistema de comércio eletrônico simplificado.
+Body Request: 
 
-Clientes (campos da tabela correspondente: CPF, nome do cliente, endereço, estado, Municícipio, telefone, email e senha)  fazem pedidos (campos da tabela: código do pedido, data do pedido e CPF do cliente). Esses, por sua vez, são constituídos por itens de pedido (campos da tabela correspondente: código do pedido, código do produto e  quantidade ) referentes  a um  produto (campos da tabela correspondente:código do produto, nome do produto, preço do produto e quantidade em estoque). Esses produtos são classificados em categorias (campos da tabela  correspondente: código da categoria e nome da categoria).
+```
+{
+    "name": "Maria Felix",
+    "cpf": "96782411024",
+    "email": "maria@gmail.com",
+    "telefone": "5531985956520",
+    "endereco": "rua xxx numero 230",
+    "estado": "MG",
+    "municipio": "Betim",
+    "senha": "123456"
+}
+```
 
-Tão logo um pedido seja efetuado, deve ser emitida uma confirmação com os itens de pedido, suas quantidades e subtotais e o total do pedido.
+### GET - Fazer Login
+```
+https://projetoposgraduacao-backend.herokuapp.com/login
 
-Deve ser emitido um relatório  de pedidos por data (com informações  do pedido-itens de pedido, quantidade, total, parcial- nome e cpf do cliente) .
+```
 
-O sistema deve permitir a autenticação do cliente por meio de seu email e senha.
+Body Request:
+```
+{
+    "email": "maria@gmail.com",
+    "senha": "123456"
+}
+```
 
-Todas as tabelas devem ser mantidas por meio de CRUDs(consulta, alteração, consulta e exclusão).
+### PUT - Editar usuario
 
+```
+https://projetoposgraduacao-backend.herokuapp.com/cliente
+```
+Atualizar usuário - o CPF é obrigatório!
 
-### FrontEnd 
+Body Request: 
+```
+{
+    "name": "Teste 01 atualizado",
+    "cpf": "123456655",
+    "email": "emailatualizado@email.com",
+    "telefone": "5531654987",
+    "endereco": "rua xxxy numero 230",
+    "estado": "MG",
+    "municipio": "Betim",
+    "senha": "123456"
+}
+```
 
-- Telas desenvolvidas no Android Studio 
+### DELETE - Excluir Cliente
 
+```
+https://projetoposgraduacao-backend.herokuapp.com/cliente/123456655
 
-### BackEnd
+```
 
-- A API da aplicação foi criada utilizando NodeJs 
-- Banco de Dados - Postgres
+## Categoria
+
+### POST - Criar Categoria
+```
+https://projetoposgraduacao-backend.herokuapp.com/categoria
+
+```
+
+Body Request: 
+```
+{
+    "name_categoria": "Categoria Teste 02"
+}
+```
+
+### GET - Buscar todas as categorias
+```
+https://projetoposgraduacao-backend.herokuapp.com/categoria
+```
+
+### GET - Buscar categoria pelo Id dela
+```
+https://projetoposgraduacao-backend.herokuapp.com/categoria/35829bdb-ddfd-4bef-a5f4-2af45e047fbb
+```
+
+### PUT- Atualizar Categoria
+```
+https://projetoposgraduacao-backend.herokuapp.com/categoria
+```
+Body Request: 
+```
+{
+    "name_categoria": "Categoria Teste Atualizada",
+    "codigo_categoria": "35829bdb-ddfd-4bef-a5f4-2af45e047fbb"
+}
+```
+
+### DELETE - Deletar Categoria
+```
+https://projetoposgraduacao-backend.herokuapp.com/categoria/ed2cc9ee-a9ed-4efc-b8e6-9d02599f5836
+```
+
+## Pedidos
+
+### POST- Criar pedidos
+```
+https://projetoposgraduacao-backend.herokuapp.com/pedidos
+```
+Body Request: 
+```
+{
+    "cpf":"123456656",
+    "quantidade": 15
+}
+```
+
+### GET - Buscar todos os pedidos
+```
+https://projetoposgraduacao-backend.herokuapp.com/pedidos
+```
+### PUT - Atualizar pedidos
+```
+https://projetoposgraduacao-backend.herokuapp.com/pedidos
+```
+Body Request: 
+```
+{
+    "cpf":"123456656",
+    "id":1,
+    "quantidade": 15
+}
+```
+### GETBuscar Pedido pelo Id
+```
+https://projetoposgraduacao-backend.herokuapp.com/pedidos/1
+```
+Body Request: 
+```
+{
+    "cpf":"123456656",
+    "id":1,
+    "quantidade": 15
+}
+```
+### DELETE - Excluir Pedido
+```
+https://projetoposgraduacao-backend.herokuapp.com/pedidos/7
+```
+Body Request: 
+```
+{
+    "cpf":"123456656",
+    "id":1,
+    "quantidade": 15
+}
+```
+## Produtos
+
+### GET - Buscar Produtos
+```
+https://projetoposgraduacao-backend.herokuapp.com/produto
+```
+### GET - Buscar Produtos por ID
+```
+https://projetoposgraduacao-backend.herokuapp.com/produto/9f2999f5-9a6e-404c-b3bf-0104f305d9c6
+```
+### POST- Criar Produto
+```
+https://projetoposgraduacao-backend.herokuapp.com/produto
+```
+Body Request: 
+```
+{
+    "name_produto": "Produto Teste 03",
+    "quantidade_produto": 5,
+    "price_produto": 12.5
+}
+```
+### PUT- Editar Produto
+```
+https://projetoposgraduacao-backend.herokuapp.com/produto
+```
+Body Request: 
+```
+{
+    "codigo_produto": "bd2a54ad-95c2-42ad-bcea-357117b0d681",
+    "nome_produto": "Produto Teste Atualizado 05",
+    "quantidade": 8,
+    "preco": 21.00
+}
+
+```
+### DELETE - Excluir Produto
+```
+https://projetoposgraduacao-backend.herokuapp.com/produto/bd2a54ad-95c2-42ad-bcea-357117b0d681
+```
+## Item Pedidos
+### GET - Buscar Item pedido
+```
+https://projetoposgraduacao-backend.herokuapp.com/itempedido/1
+```
+### POST - Criar Item Pedido
+```
+https://projetoposgraduacao-backend.herokuapp.com/itempedido
+```
+Body Request:
+```
+{
+    "codigo_pedido": "1818f4da-1813-400d-ad47-35618ea3614f",
+    "codigo_produto": "bd2a54ad-95c2-42ad-bcea-357117b0d681",
+    "quantidade": 15
+}
+```
+### PUT - Atualizar Item Pedido
+```
+https://projetoposgraduacao-backend.herokuapp.com/itempedido
+```
+Body Request:
+
+```
+{
+    "id":5,
+    "codigo_pedido": "1818f4da-1813-400d-ad47-35618ea3614f",
+    "codigo_produto": "bd2a54ad-95c2-42ad-bcea-357117b0d681",
+    "quantidade": 25
+}
+```
+
+### DELETE - Deletar Item Pedido
+```
+https://projetoposgraduacao-backend.herokuapp.com/itempedido/5
+```
