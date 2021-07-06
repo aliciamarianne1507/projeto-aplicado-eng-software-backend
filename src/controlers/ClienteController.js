@@ -1,6 +1,15 @@
 import Cliente from '../models/Cliente';
 
 class ClienteController {
+    async getAllClients(req,res){
+        const clientes = await Cliente.findAll()
+        if(!clientes){
+            return res.status(400).json({ error: 'Usuario não existe' });
+        }
+        else{
+            return res.json(clientes)
+        }
+    }
     async searchClientByCPF(req,res){
         const {cpf} = req.params;
         const cliente = await Cliente.findOne({

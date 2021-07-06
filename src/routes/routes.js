@@ -12,6 +12,7 @@ const routes = new Router();
 //Cliente CRUD:
 
 
+routes.get('/cliente', ClienteController.getAllClients); //Buscar todos os clientes
 routes.get('/cliente/:cpf', ClienteController.searchClientByCPF); //Buscar cliente especifico
 
 routes.get('/cliente', ClienteController.login); // Fazer login usuário
