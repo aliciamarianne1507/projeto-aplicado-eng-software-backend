@@ -4,6 +4,10 @@ API desenvolvida durante a pós-graduação em Engenharia de Software da PUC Min
 
 Os clientes (campos da tabela correspondente: CPF, nome do cliente, endereço, estado, Município, telefone, e-mail e senha) fazem os pedidos (campos da tabela: código do pedido, data do pedido e CPF do cliente). Estes, por sua vez, são compostos por itens de pedido (campos da tabela correspondentes: código do pedido, código do produto e quantidade) referentes a um produto (campos da tabela correspondente: código do produto, nome do produto, preço do produto e quantidade em estoque). Esses produtos são classificados em categorias (campos na tabela correspondente: código da categoria e nome da categoria).
 
+Professor: Pasteur Ottoni de Miranda Junior
+
+[Front End](https://github.com/aliciamarianne1507/projeto-aplicado-eng-software-frontend)
+
 ## Clientes
 
 ### GET- Buscar usuário
