@@ -1,1 +1,1 @@
-web: node -r sucrase/register server.js
+web: npm start
