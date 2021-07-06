@@ -45,11 +45,11 @@ class CategoriaController {
 
     // Atualizar categoria: 
     async updateCategory(req,res){
-        const { id } = req.body;
+        const { codigo_categoria } = req.body;
 
         const categoryExists = await Categoria.findOne({
             where: {
-                id: id
+                codigo_categoria: codigo_categoria
             }
         })
 
@@ -64,10 +64,10 @@ class CategoriaController {
 
     async deleteCategory(req,res){
 
-        const { id } = req.params;
+        const { codigo_categoria } = req.params;
         const categoriaExists = await Categoria.findOne({
             where: {
-                id: id
+                codigo_categoria: codigo_categoria
             }
         })
 
@@ -77,7 +77,7 @@ class CategoriaController {
         else{
             await categoriaExists.destroy({
                 where:{
-                    id: id
+                    codigo_categoria: codigo_categoria
                 }
             }).then(function () {
                     res.status(200).json({message:"Deleted successfully"});
