@@ -1,8 +1,8 @@
 # Projeto Aplicado a Engenharia de Software
-Projeto Aplicado - Engenharia de Software
-API developed during the pos graduate program in Software Engineering at PUC Minas - 2021 to represents a simplified electronic commerce.
 
-Customers (fields in the corresponding table: CPF, customer name, address, state, Municipality, telephone, email and password) place orders (table fields: order code, order date and customer CPF). These, in turn, are made up of order items (corresponding table fields: order code, product code and quantity) referring to a product (corresponding table fields: product code, product name, product price and quantity in stock). These products are classified into categories (fields in the corresponding table: category code and category name).
+API desenvolvida durante a pós-graduação em Engenharia de Software da PUC Minas - 2021 para representar um comércio eletrônico simplificado.
+
+Os clientes (campos da tabela correspondente: CPF, nome do cliente, endereço, estado, Município, telefone, e-mail e senha) fazem os pedidos (campos da tabela: código do pedido, data do pedido e CPF do cliente). Estes, por sua vez, são compostos por itens de pedido (campos da tabela correspondentes: código do pedido, código do produto e quantidade) referentes a um produto (campos da tabela correspondente: código do produto, nome do produto, preço do produto e quantidade em estoque). Esses produtos são classificados em categorias (campos na tabela correspondente: código da categoria e nome da categoria).
 
 ## Clientes
 
