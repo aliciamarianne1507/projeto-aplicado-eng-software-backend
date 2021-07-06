@@ -1,4 +1,5 @@
 import Categoria from '../models/Categoria';
+import uuidv4 from "../functions/uuidGenerate";
 
 class CategoriaController {
 
@@ -25,6 +26,7 @@ class CategoriaController {
 
     async createNewCategory(req,res){
         const {name_categoria} = req.body;
+        const uuid = uuidv4();
         const categoriaExists = await Categoria.findOne({
             where:{
                 name_categoria: name_categoria
@@ -33,7 +35,10 @@ class CategoriaController {
             return res.status(400).json({ error: 'Categoria já existe' });
         }
         else{
-            const categoria = await Categoria.create(req.body);
+            const categoria = await Categoria.create({
+                name_categoria: name_categoria,
+                codigo_categoria: uuid
+            });
             return res.json(categoria)
         }
     }

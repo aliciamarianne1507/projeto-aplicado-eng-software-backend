@@ -3,6 +3,7 @@ class Categoria extends Model{
     static init(sequelize){
         super.init({
             name_categoria: Sequelize.STRING,
+            codigo_categoria: Sequelize.UUID
         },
         {
             sequelize,
