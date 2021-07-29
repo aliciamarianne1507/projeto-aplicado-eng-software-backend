@@ -22,7 +22,7 @@ class ClienteController {
             return res.status(400).json({ error: 'Usuario não existe' });
         }
 
-        res.json({cliente});
+        res.json(cliente);
     }
 
     //Login
@@ -63,7 +63,7 @@ class ClienteController {
         }
     }
 
-    // Atualizar cliente: 
+    // Atualizar cliente:
     async updateClient(req,res){
         const { cpf } = req.body;
 
@@ -82,7 +82,7 @@ class ClienteController {
     }
 
     // Excluir cliente:
-    
+
     async deleteClient(req,res){
 
         const {cpf} = req.params;
